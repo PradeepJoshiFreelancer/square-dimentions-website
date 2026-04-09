@@ -97,8 +97,7 @@ export default function Hero() {
               style={{ color: "#C4813D" }}
             >
               Vijay Pal
-              <br className="hidden md:block" />
-              Singh
+              <br className="hidden md:block" /> Singh
             </h1>
           </div>
 
@@ -109,7 +108,7 @@ export default function Hero() {
               style={{ color: "#5a5248" }}
             >
               Building resilient structures that stand the test of time.{" "}
-              <span className="font-semibold text-[#C4813D]">15+ years</span> of
+              <span className="font-semibold text-[#C4813D]">25+ years</span> of
               expertise in structural design, project management & sustainable
               construction.
             </p>

@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
-import animatePlugin from "tailwindcss-animate"; // npm i tailwindcss-animate -D
+import animatePlugin from "tailwindcss-animate";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class", // ← FIXED: string instead of array
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -33,7 +33,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        // Custom portfolio colors
         surface: "#1A1A1A",
         primaryAction: "#C4813D",
         secondaryAction: "#D4C4B0",
@@ -55,6 +54,10 @@ const config: Config = {
           from: { opacity: "0", transform: "scale(0.9)" },
           to: { opacity: "1", transform: "scale(1)" },
         },
+        "stat-grow": {
+          "0%": { width: "0%" },
+          "100%": { width: "var(--grow)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.8s ease forwards",
@@ -62,9 +65,10 @@ const config: Config = {
         "slide-in": "slide-in 0.7s ease forwards",
         "scale-in": "scale-in 0.6s ease forwards",
         "stat-grow": "stat-grow 1.2s ease-out forwards",
-        "fade-anim": "fadeUp 0.8s ease forwards",
       },
     },
   },
   plugins: [animatePlugin],
 };
+
+export default config;

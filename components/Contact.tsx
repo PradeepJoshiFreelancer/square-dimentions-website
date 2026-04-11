@@ -15,6 +15,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const sectionRef = useReveal();
+  const formRef = useReveal();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +75,7 @@ export default function Contact() {
                     Email
                   </p>
                   <p className="font-medium" style={{ color: "#1a1a1a" }}>
-                    vijay@example.com
+                    vmrt1965@gmail.com
                   </p>
                 </div>
               </div>
@@ -94,7 +95,7 @@ export default function Contact() {
                     Phone
                   </p>
                   <p className="font-medium" style={{ color: "#1a1a1a" }}>
-                    +91 98765 43210
+                    +91 941220 02123
                   </p>
                 </div>
               </div>
@@ -114,7 +115,10 @@ export default function Contact() {
                     Location
                   </p>
                   <p className="font-medium" style={{ color: "#1a1a1a" }}>
-                    Phase 1, Pallavpuram, Meerut
+                    1st Floor(Above HDFC Bank), 6, Royal Plaza, Roorkee Rd,
+                    Meerut,
+                    <br />
+                    Uttar Pradesh, Pin - 250110
                   </p>
                 </div>
               </div>
@@ -122,7 +126,11 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="reveal fade-up" style={{ animationDelay: "0.2s" }}>
+          <div
+            ref={formRef}
+            className="reveal fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label

@@ -1,35 +1,48 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "Emerald Heights Residency",
+    title: "Appu Green Park",
     category: "residential",
-    type: "G+14 Residential Tower",
-    location: "Sector 82, Gurgaon",
+    type: "G+2 Residential Tower",
+    location: "Appu Green Park, Meerut",
     gradient: "linear-gradient(135deg, #C4813D 0%, #8B5A2B 100%)",
+    image: "/projects/AppuGreen.jpeg",
   },
   {
-    title: "Nexus Business Park",
+    title: "APC5 - Phase -1, Pallavpuram",
     category: "commercial",
     type: "Commercial Complex",
-    location: "Cyber City, Gurgaon",
+    location: "Pallavpuram Phase-1, Meerut",
     gradient: "linear-gradient(135deg, #2C3E50 0%, #1A1A1A 100%)",
+    image: "/projects/commercialphase1.jpeg",
   },
   {
-    title: "NH-48 Flyover Extension",
-    category: "infrastructure",
-    type: "Highway Infrastructure",
-    location: "Manesar, Haryana",
-    gradient: "linear-gradient(135deg, #5A5248 0%, #3E3832 100%)",
-  },
-  {
-    title: "Palm Villas Phase II",
+    title: "Plot 88, Radha Kunj, Meerut",
     category: "residential",
-    type: "Villa Township",
-    location: "Sohna Road, Gurgaon",
-    gradient: "linear-gradient(135deg, #D4C4B0 0%, #A89F94 100%)",
+    type: "G+2 Residential Tower",
+    location: "Plot 88, Radha Kunj, Meerut",
+    gradient: "linear-gradient(135deg, #5A5248 0%, #3E3832 100%)",
+    image: "/projects/RadhaKunj.jpeg",
+  },
+  {
+    title: "A-25, Pallavpuram Phase-1, Meerut",
+    category: "residential",
+    type: "G+3 Residential Tower",
+    location: "A-25, Pallavpuram Phase-1, Meerut",
+    gradient: "linear-gradient(135deg, #C4813D 0%, #8B5A2B 100%)",
+    image: "/projects/ResidentialPhase1.jpeg",
+  },
+  {
+    title: "Plot 113, Sun City, Meerut",
+    category: "residential",
+    type: "G+3 Residential Tower",
+    location: "Plot 113, Sun City, Meerut",
+    gradient: "linear-gradient(135deg, #C4813D 0%, #8B5A2B 100%)",
+    image: "/projects/SunCity.jpeg",
   },
 ];
 
@@ -100,22 +113,20 @@ export default function Projects() {
               : "opacity-0 translate-y-4"
           }`}
         >
-          {["all", "residential", "commercial", "infrastructure"].map(
-            (filter, index) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2 text-xs font-semibold uppercase tracking-widest border rounded-full transition-all duration-300 ${
-                  activeFilter === filter
-                    ? "bg-[#C4813D] text-[#F5F0EB] border-[#C4813D] shadow-md scale-105"
-                    : "border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#F5F0EB] hover:scale-105 hover:shadow-md"
-                }`}
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                {filter.charAt(0).toUpperCase() + filter.slice(1)}
-              </button>
-            )
-          )}
+          {["all", "residential", "commercial"].map((filter, index) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-5 py-2 text-xs font-semibold uppercase tracking-widest border rounded-full transition-all duration-300 ${
+                activeFilter === filter
+                  ? "bg-[#C4813D] text-[#F5F0EB] border-[#C4813D] shadow-md scale-105"
+                  : "border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#F5F0EB] hover:scale-105 hover:shadow-md"
+              }`}
+              style={{ animationDelay: `${index * 50}ms` }}
+            >
+              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+            </button>
+          ))}
         </div>
 
         {/* Projects Grid */}
@@ -131,7 +142,7 @@ export default function Projects() {
               className="project-card group relative overflow-hidden rounded-2xl cursor-pointer hover:shadow-2xl transition-all duration-700 hover:scale-[1.02]"
             >
               {/* Project Image */}
-              <div
+              {/* <div
                 className="project-img transition-all duration-700 aspect-[4/3] flex items-end p-6 relative group-hover:scale-110"
                 style={{ background: project.gradient }}
               >
@@ -149,18 +160,30 @@ export default function Projects() {
                   <line x1="15" y1="15" x2="17" y2="25" />
                   <line x1="17" y1="15" x2="30" y2="15" />
                 </svg>
+              </div> */}
+              <div className="relative mb-6 h-48 overflow-hidden rounded-xl bg-[#F5F0EB]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-contain transition-transform duration-700 group-hover:scale-105"
+                  priority={index === 0}
+                />
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/70 backdrop-blur-sm">
-                <span
-                  className="text-xs font-semibold uppercase tracking-widest px-6 py-3 border rounded-full bg-white/20 backdrop-blur-sm"
-                  style={{ color: "#F5F0EB", borderColor: "#C4813D" }}
-                >
-                  View Details →
-                </span>
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100 bg-black/70 backdrop-blur-sm">
+                <div className="relative h-[85%] w-[85%]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain"
+                  />
+                </div>
               </div>
-
               {/* Content */}
               <div className="p-6 bg-[#FDFAF7]">
                 <h3

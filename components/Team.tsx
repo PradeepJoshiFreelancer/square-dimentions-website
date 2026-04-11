@@ -10,29 +10,29 @@ const teamMembers = [
     image: "/team/vijay.jpg",
     experience: "15+ Years",
     expertise: "Structural Design, Project Management",
-    location: "Gurgaon, Haryana",
-    phone: "+91 98765 43210",
-    email: "vijay@company.com",
+    location: "Meerut, UP",
+    phone: "+91 94122 02123",
+    email: "vmrt1965@gmail.com",
   },
   {
-    name: "Priya Sharma",
-    role: "Senior Structural Engineer",
-    image: "/team/priya.jpg",
-    experience: "10+ Years",
-    expertise: "RCC Design, ETABS Analysis",
-    location: "Delhi, India",
-    phone: "+91 87654 32109",
-    email: "priya@company.com",
+    name: "Zeba Husain",
+    role: "Senior Interior Designer",
+    image: "/team/zeba.jpeg",
+    experience: "7+ Years",
+    expertise: "Interior Design",
+    location: "Ghaziabad, UP",
+    // phone: "+91 87654 32109",
+    // email: "priya@company.com",
   },
   {
-    name: "Rahul Mehta",
+    name: "Mujahid",
     role: "Project Manager",
-    image: "/team/rahul.jpg",
-    experience: "12+ Years",
+    image: "/team/mujahid.jpeg",
+    experience: "8+ Years",
     expertise: "Site Supervision, Quality Control",
-    location: "Noida, UP",
-    phone: "+91 76543 21098",
-    email: "rahul@company.com",
+    location: "Ghaziabad, UP",
+    // phone: "+91 76543 21098",
+    // email: "rahul@company.com",
   },
 ];
 
@@ -123,16 +123,16 @@ export default function Team() {
               />
 
               {/* Team Member Image */}
-              <div className="relative mb-6 h-48 rounded-xl overflow-hidden">
+              <div className="relative mb-6 h-48 overflow-hidden rounded-xl">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   priority={index === 0}
                 />
-                <div className="absolute top-4 right-4 bg-[#C4813D]/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                <div className="absolute top-4 right-4 rounded-full bg-[#C4813D]/90 px-2 py-1 text-xs font-semibold text-white">
                   {member.experience}
                 </div>
               </div>
@@ -169,25 +169,31 @@ export default function Team() {
                       {member.location}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 py-2 hover:bg-[#FDFAF7]/50 rounded-lg px-2 transition-colors">
-                    <Phone
-                      className="w-4 h-4 flex-shrink-0"
-                      style={{ color: "#C4813D" }}
-                    />
-                    <span className="text-xs font-medium">{member.phone}</span>
-                  </div>
-                  <div className="flex items-center gap-3 py-2 hover:bg-[#FDFAF7]/50 rounded-lg px-2 transition-colors">
-                    <Mail
-                      className="w-4 h-4 flex-shrink-0"
-                      style={{ color: "#C4813D" }}
-                    />
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="text-xs font-medium hover:text-[#C4813D] transition-colors truncate"
-                    >
-                      {member.email}
-                    </a>
-                  </div>
+                  {member.phone && (
+                    <div className="flex items-center gap-3 py-2 hover:bg-[#FDFAF7]/50 rounded-lg px-2 transition-colors">
+                      <Phone
+                        className="w-4 h-4 flex-shrink-0"
+                        style={{ color: "#C4813D" }}
+                      />
+                      <span className="text-xs font-medium">
+                        {member.phone}
+                      </span>
+                    </div>
+                  )}
+                  {member.email && (
+                    <div className="flex items-center gap-3 py-2 hover:bg-[#FDFAF7]/50 rounded-lg px-2 transition-colors">
+                      <Mail
+                        className="w-4 h-4 flex-shrink-0"
+                        style={{ color: "#C4813D" }}
+                      />
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="text-xs font-medium hover:text-[#C4813D] transition-colors truncate"
+                      >
+                        {member.email}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

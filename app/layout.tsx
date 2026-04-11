@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full font-body scroll-smooth">
+    <html>
       <body className="h-full w-full overflow-auto bg-[#F5F0EB]">
         <Navbar />
         <main id="app" className="h-full w-full">
@@ -23,3 +23,4 @@ export default function RootLayout({
     </html>
   );
 }
+// lang="en" className="h-full font-body scroll-smooth">
